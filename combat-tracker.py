@@ -55,20 +55,20 @@ class Character:
     def take_damage(self, damage, combat_round):
         self.hp -= damage
         if self.hp <=0 and self.is_player == False:
-            print(f"\n{self.name} is dead!")
+            input(f"\n{self.name} is dead!")
             combat_round.remove(self)
         elif self.hp <= -self.hpmax and self.is_player:
-            print(f"\n{self.name} is killed instantly!")
+            input(f"\n{self.name} is killed instantly!")
             combat_round.remove(self)
         elif self.is_player and self.dying:
             self.death_save_failure += 1
-            print(f"\n{self.name} fails a death save!")
+            input(f"\n{self.name} fails a death save!")
             self.hp = 0
             if self.death_save_failure >=3:
-               print(f"{self.name} is dead!")
+               input(f"{self.name} is dead!")
                combat_round.remove(self) 
         elif self.hp <=0 and self.is_player:
-            print(f"\n{self.name} is dying!")
+            input(f"\n{self.name} is dying!")
             self.conditions.append("Unconscious")
             self.hp = 0
             self.dying = True
@@ -114,10 +114,11 @@ class Character:
     def add_condition(self):
         with open("conditions.txt", "r") as file:
             conditions_list = json.load(file)
+        print("\nConditions:")
         for i, condition in enumerate(conditions_list.keys(), 1):
             print(f"{i}: {condition}")
         while True:
-            selected_condition_index = int(input("Choose a condition to add: ")) -1
+            selected_condition_index = int(input(f"Choose a condition to add to {self.name}: ")) -1
             condition_names = list(conditions_list.keys())
             selected_condition = condition_names[selected_condition_index]
             if selected_condition in self.conditions:
@@ -282,15 +283,12 @@ def select_encounter(combat_round):
 def print_order(combat_round):
     print("\nInitiative order:\n")
     for i, character in enumerate(combat_round, 1):
-        print(f"Init:{character.initiative}\n{character.name}\nAC: {character.ac}, HP: {character.hp}")
+        print(f"{character.name}\nAC: {character.ac}, HP: {character.hp}")
         if character.conditions:
             conditions_str = ', '.join(character.conditions)
             print(f"Conditions: {conditions_str}")
-        if character.is_player:
-            print("Player Character")
-        else:
-            print("NPC")
-        print("")
+        if character is combatant:
+            print("^^^^^^^^^^^^^^")
 
 def choose_char(combat_round):
     for i, character in enumerate(combat_round, 1):
@@ -327,9 +325,10 @@ while True:
     combat_round.sort(key=lambda character: character.initiative, reverse=True)
     combatant_index = 0
     while combat_round:
+        turn_number += 1
         if combatant_index == 0:
             round_number += 1
-        turn_number += 1
+            turn_number = 1
         combatant = combat_round[combatant_index]
         combat_end=win_state_check()
         if combat_end:
@@ -346,7 +345,7 @@ while True:
                 combatant_index = (combatant_index + 1) % len(combat_round)
                 break
             if "Unconscious" in combatant.conditions or "Incapacitated" in combatant.conditions or combatant not in combat_round:
-                print(f"{combatant.name} is unable to act!")
+                input(f"{combatant.name} is unable to act!")
                 combatant_index = (combatant_index + 1) % len(combat_round)
                 break
             
@@ -384,12 +383,14 @@ while True:
             elif action == "c" or action == "h" or action == "i":
                 chosen=choose_char(combat_round)
                 if action == "c":
-                    action = input("(A)dd or (R)emove a condition?: ").lower()
-                    if action == "a":
-                        chosen.add_condition()
-                    elif action =="r":
-                        chosen.remove_condition()
-                    else: continue
+                    if chosen.conditions:
+                        action = input("(A)dd or (R)emove a condition?: ").lower()
+                        if action == "a":
+                            chosen.add_condition()
+                        elif action =="r":
+                            chosen.remove_condition()
+                        else: continue
+                    else: chosen.add_condition()
 
                 if action == "h":
                     action = input("(H)eal or (D)amage HP?: ").lower()
