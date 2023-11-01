@@ -1,0 +1,182 @@
+[
+    {
+        "name": "Boss Battle",
+        "characters": [
+            {
+                "name": "Aelfric",
+                "initiative": "1d20+5",
+                "ac": 18,
+                "hp": "16d6+48"
+            }
+        ]
+    },
+    {
+        "name": "Bandit Ambush",
+        "characters": [
+            {
+                "name": "Bandit Leader",
+                "initiative": "1d20+2",
+                "ac": 15,
+                "hp": "6d8+12"
+            },
+            {
+                "name": "Bandit 1",
+                "initiative": "1d20+0",
+                "ac": 12,
+                "hp": "4d8+4"
+            },
+            {
+                "name": "Bandit 2",
+                "initiative": "1d20+0",
+                "ac": 12,
+                "hp": "4d8+4"
+            },
+            {
+                "name": "Bandit 3",
+                "initiative": "1d20+0",
+                "ac": 12,
+                "hp": "4d8+4"
+            }
+        ]
+    },
+    {
+        "name": "Goblin Ambush",
+        "characters": [
+            {
+                "name": "Hobgoblin 1",
+                "initiative": "1d20+1",
+                "ac": 18,
+                "hp": "2d8+2"
+            },
+            {
+                "name": "Hobgoblin 2",
+                "initiative": "1d20+1",
+                "ac": 18,
+                "hp": "2d8+2"
+            },
+            {
+                "name": "Hobgoblin 3",
+                "initiative": "1d20+1",
+                "ac": 18,
+                "hp": "2d8+2"
+            },
+            {
+                "name": "Hobgoblin 4",
+                "initiative": "1d20+1",
+                "ac": 18,
+                "hp": "2d8+2"
+            },
+            {
+                "name": "Goblin 1",
+                "initiative": "1d20+2",
+                "ac": 15,
+                "hp": "2d6"
+            },
+            {
+                "name": "Goblin 2",
+                "initiative": "1d20+2",
+                "ac": 15,
+                "hp": "2d6"
+            },
+            {
+                "name": "Goblin 3",
+                "initiative": "1d20+2",
+                "ac": 15,
+                "hp": "2d6"
+            },
+            {
+                "name": "Goblin 4",
+                "initiative": "1d20+2",
+                "ac": 15,
+                "hp": "2d6"
+            },
+            {
+                "name": "Goblin Boss",
+                "initiative": "1d20+2",
+                "ac": 17,
+                "hp": "6d6"
+            }
+        ]
+    },
+    {
+        "name": "Bear Attack!",
+        "characters": [
+            {
+                "name": "Cave Bear",
+                "initiative": "1d20+0",
+                "ac": 12,
+                "hp": "5d10+15"
+            },
+            {
+                "name": "Brown Bear 1",
+                "initiative": "1d20+0",
+                "ac": 11,
+                "hp": "4d10+12"
+            },
+            {
+                "name": "Brown Bear 2",
+                "initiative": "1d20+0",
+                "ac": 11,
+                "hp": "4d10+12"
+            }
+        ]
+    },
+    {
+        "name": "Wandering Undead",
+        "characters": [
+            {
+                "name": "Skeleton 1",
+                "initiative": "1d20+2",
+                "ac": 13,
+                "hp": "2d8+4"
+            },
+            {
+                "name": "Skeleton 2",
+                "initiative": "1d20+2",
+                "ac": 13,
+                "hp": "2d8+4"
+            },
+            {
+                "name": "Zombie 1",
+                "initiative": "1d20-2",
+                "ac": 8,
+                "hp": "3d8+9"
+            },
+            {
+                "name": "Zombie 2",
+                "initiative": "1d20-2",
+                "ac": 8,
+                "hp": "3d8+9"
+            },
+            {
+                "name": "Zombie 3",
+                "initiative": "1d20-2",
+                "ac": 8,
+                "hp": "3d8+9"
+            },
+            {
+                "name": "Zombie Warrior 1",
+                "initiative": "1d20+0",
+                "ac": 16,
+                "hp": "6d10+18"
+            },
+            {
+                "name": "Zombie Warrior 2",
+                "initiative": "1d20+0",
+                "ac": 16,
+                "hp": "6d10+18"
+            }
+        ]
+    },
+    {
+        "name": "PLACEHOLDER",
+        "characters": [
+            {
+                "name": "PLACEHOLDER",
+                "initiative": "1d20+0",
+                "ac": 0,
+                "hp": "1d4+0"
+            }
+        ]
+    }
+]
